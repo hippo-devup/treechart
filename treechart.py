@@ -90,7 +90,7 @@ left_x = 0
 right_x = 0
 # 添加树叶
 saved_date = ''
-path = os.getcwd()
+save_path = os.getcwd()
 
 def init():
     pass
@@ -165,7 +165,7 @@ def update(frame, init_called=[False]):
 	ax.plot(trunk_x, trunk_y, color='brown', linewidth=48, zorder=1)
 	
 	if frame == len(df_simulated) - 1:
-		plt.savefig(os.path.join(path, 'Event_Tree_Visualization.png'), format='png', dpi=300)
+		plt.savefig(os.path.join(save_path, 'Event_Tree_Visualization.png'), format='png', dpi=300)
 
 # 设置图形属性
 ax.set_xlim(0, 1)
@@ -174,5 +174,5 @@ ax.axis('off')  # 隐藏轴
 
 ani = FuncAnimation(fig, update, frames=len(df_simulated), repeat=False, interval=500, init_func=init)
 
-#ani.save(os.path.join(path, 'my_animation.mp4'), writer='ffmpeg', fps=2)
+#ani.save(os.path.join(save_path, 'my_animation.mp4'), writer='ffmpeg', fps=2)
 plt.show()
